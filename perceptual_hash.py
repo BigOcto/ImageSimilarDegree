@@ -36,7 +36,7 @@ def do():
     target_list = read_excel_data_by_col("SOUCE_2", 0, "Image_similarity_degree.xls")
     # for i in range(1, len(image_list)):
     #     calculate(image_list[i], target_list[i])
-    calculate("1.JPG", "2.JPG")
+    calculate("1.jpg", "2.jpg")
 
 
 def calculate(im, wd):
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     # if len(sys.argv) <= 1 or len(sys.argv) > 3:
     #     print("Usage: %s image.jpg [dir]" % sys.argv[0])
     # else:
-    # im, wd = "1.JPG", "2.JPG"
+    # im, wd = "1.jpg", "2.jpg"
     # h = avhash(im)
     # # os.chdir(wd)
     # images = []

@@ -4,18 +4,12 @@ import numpy as np
 import cv2
 from PIL import Image
 from matplotlib import pyplot as plt
-from numpy.core.tests.test_mem_overlap import xrange
 
 MIN_MATCH_COUNT = 10
 
-
-def make_regalur_image(img, size=(256, 256)):
-    pil_image = PIL.Image.open(img)
-    return cv2.cvtColor(numpy.array(pil_image), cv2.COLOR_BGR2RGB)
-
 def sift_calculate(query_image, train_image):
-    # img1 = cv2.imread('/Users/zhangyu/PycharmProjects/histsimilar/imgsearch/test/TEST2/1.JPG', 0)  # queryImage
-    # img2 = cv2.imread('/Users/zhangyu/PycharmProjects/histsimilar/imgsearch/test/TEST2/2.JPG', 0)  # trainImage
+    # img1 = cv2.imread('/Users/zhangyu/PycharmProjects/histsimilar/imgsearch/test/TEST2/1.jpg', 0)  # queryImage
+    # img2 = cv2.imread('/Users/zhangyu/PycharmProjects/histsimilar/imgsearch/test/TEST2/2.jpg', 0)  # trainImage
     img1 = cv2.imread(query_image, -1)  # queryImage
     img2 = cv2.imread(train_image, -1)  # trainImage
     # img1 = make_regalur_image(query_image)  # queryImage
@@ -97,22 +91,6 @@ def sift_calculate(query_image, train_image):
         # img3 = cv2.drawMatches(img1, kp1, img2, kp2, good, None, **draw_params)
         # plt.imshow(img3, 'gray'), plt.show()
 
-
-# matchesMask = [[0, 0] for i in xrange(len(matches))]
-#
-# # ratio test as per Lowe's paper
-# for i, (m, n) in enumerate(matches):
-#     if m.distance < 0.7 * n.distance:
-#         matchesMask[i] = [1, 0]
-# print(len(matchesMask))
-# draw_params = dict(matchColor=(0, 255, 0),
-#                    singlePointColor=(255, 0, 0),
-#                    matchesMask=matchesMask,
-#                    flags=0)
-#
-# img3 = cv2.drawMatchesKnn(img1, kp1, img2, kp2, matches, None, **draw_params)
-#
-# plt.imshow(img3, ), plt.show()
 
 if __name__ == '__main__':
     # path = './test/'
