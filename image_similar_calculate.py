@@ -2,7 +2,7 @@ from collections import namedtuple
 
 from siftsimilar import sift_calculate
 from histsimilar import calculate_his
-from histsimilar import calculate_his
+from hashsimilar import md5_calculate
 from excel_operation import read_excel_data_by_col, write_excel
 from os.path import join, isfile, isdir, splitext, basename, abspath
 from os import walk
@@ -74,17 +74,17 @@ def do_calculate(path, need_write_excel=None):
 
 
 if __name__ == '__main__':
-    do_calculate('/Users/zhangyu/Desktop/QYVideoClient-debug/res', True)
+    # do_calculate('/Users/zhangyu/Desktop/QYVideoClient-debug/res', True)
     # do_calculate('/Users/zhangyu/PycharmProjects/ImageSimilarDegree/test-res/TEST8', True)
     # sift_calculate('/Users/zhangyu/PycharmProjects/histsimilar/imgsearch/test-res/TEST4/1.png',
     #                '/Users/zhangyu/Desktop/QYVideoClient-debug/res/drawable-xhdpi-v4/player_land_setting_guide_bg_new.9.png')
 
     #####
-    # image_list = read_excel_data_by_col("SOUCE_1", 0, "Image_similarity_degree.xls")
-    # target_list = read_excel_data_by_col("SOUCE_2", 0, "Image_similarity_degree.xls")
-    # degree = []
-    # for i in range(1, len(image_list)):
-    #     print(image_list[i])
-    #     print(target_list[i])
-    #     degree.append(sift_calculate(image_list[i], target_list[i]))
-    # write_excel(degree, "Image_similarity_degree.xls", "DEGREE_BY_SIFT")
+    image_list = read_excel_data_by_col("SOUCE_1", 0, "Image_similarity_degree2.xls")
+    target_list = read_excel_data_by_col("SOUCE_2", 0, "Image_similarity_degree2.xls")
+    degree = []
+    for i in range(1, len(image_list)):
+        print(image_list[i])
+        print(target_list[i])
+        degree.append(md5_calculate(image_list[i], target_list[i]))
+    write_excel(degree, "Image_similarity_degree2.xls", "DEGREE_BY_MD5")

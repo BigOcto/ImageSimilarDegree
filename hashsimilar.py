@@ -9,6 +9,15 @@ def md5_file(name):
     return m.hexdigest()
 
 
+def md5_calculate(source, target):
+    md5_source = md5_file(source)
+    md5_target = md5_file(target)
+    if md5_source == md5_target:
+        return 1
+    else:
+        return 0
+
+
 if __name__ == '__main__':
     md5_1 = md5_file('/Users/zhangyu/PycharmProjects/ImageSimilarDegree/test-res/TEST8/1.png')
     md5_2 = md5_file('/Users/zhangyu/PycharmProjects/ImageSimilarDegree/test-res/TEST8/2.png')
@@ -16,4 +25,3 @@ if __name__ == '__main__':
         print("equal")
     else:
         print("not equal")
-    
